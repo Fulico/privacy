@@ -1,16 +1,212 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>プライバシーポリシー 一覧</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy Policies | Project Repository</title>
+    <meta name="description" content="Published app privacy policies for our mobile applications.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            --card-bg: rgba(255, 255, 255, 0.8);
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin-top: 4rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-sub);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+        }
+
+        .policy-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .policy-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: var(--primary);
+        }
+
+        .policy-card::after {
+            content: '→';
+            position: absolute;
+            right: 1.5rem;
+            bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--primary);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .policy-card:hover::after {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        .card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 4rem 0 2rem;
+            text-align: center;
+            color: var(--text-sub);
+            font-size: 0.875rem;
+        }
+
+        .template-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--text-sub);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+            border-bottom: 1px dashed transparent;
+        }
+
+        .template-link:hover {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        @media (max-width: 640px) {
+            .title {
+                font-size: 2.25rem;
+            }
+            .container {
+                margin-top: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>プライバシーポリシー（公開アプリ一覧）</h1>
-  <ul>
-    <li><a href="privacy/glycolog.html">Glycolog プライバシーポリシー</a></li>
-  </ul>
-  <hr>
-  <p>テンプレート: <a href="templates/template.html">template.html</a></p>
+    <div class="container">
+        <header>
+            <h1 class="title">Privacy Policy Hub</h1>
+            <p class="subtitle">掲載アプリのプライバシーポリシー一覧</p>
+        </header>
+
+        <div class="card-grid">
+            <a href="privacy/GiftLens.html" class="policy-card">
+                <div>
+                    <span class="tag">AI Gift App</span>
+                    <h2 class="card-title">GiftLens</h2>
+                    <p class="card-desc">AIを活用したギフト提案アプリ。パーソナライズされた贈り物探しをサポートします。</p>
+                </div>
+            </a>
+
+            <a href="privacy/glycolog.html" class="policy-card">
+                <div>
+                    <span class="tag">Healthcare</span>
+                    <h2 class="card-title">GlycoLog</h2>
+                    <p class="card-desc">血糖コントロール記録アプリ。簡単操作で日々の健康管理をお手伝いします。</p>
+                </div>
+            </a>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="templates/template.html" class="template-link">ポリシーのテンプレートを見る</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Privacy Policy Repository. All rights reserved.
+    </footer>
 </body>
 </html>

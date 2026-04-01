@@ -151,11 +151,30 @@
             margin-bottom: 16px;
         }
 
+        .lang-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--primary-light);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: var(--transition);
+            margin-top: 24px;
+        }
+
+        .lang-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
         footer {
             margin-top: 40px;
             text-align: center;
             color: var(--text-sub);
             font-size: 0.9rem;
+            padding-bottom: 40px;
         }
 
         .last-updated {
@@ -226,10 +245,13 @@
             <p class="last-updated">最終更新日: 2026年3月29日</p>
         </article>
 
+        <div style="text-align: center;">
+            <a href="../index.html" class="lang-btn">← 一覧に戻る</a>
+        </div>
+
         <footer>
             &copy; 2026 GiftLens Project. All rights reserved.
         </footer>
     </div>
 </body>
-
 </html>
