@@ -1,14 +1,21 @@
 name: Deploy to GitHub Pages
+
 on:
   push:
     branches: [ main ]
+
+permissions:
+  contents: write
+
 jobs:
   pages:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Deploy docs to GitHub Pages
+
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./privacy_docs
+          publish_dir: .
+          exclude_assets: '.git, .github'
